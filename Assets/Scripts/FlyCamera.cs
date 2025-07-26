@@ -12,7 +12,7 @@ public class FlyCamera : MonoBehaviour
     void Update()
     {
         HandleMouseLook();
-        HandleMovement();
+        //HandleMovement();
     }
 
     void HandleMouseLook()

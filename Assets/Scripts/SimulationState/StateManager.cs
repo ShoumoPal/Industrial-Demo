@@ -1,14 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class StateManager : MonoBehaviour
 {
+    [Header("Instruction States")]  
     [SerializeField]
     List<InstructionState> instructionStates;
 
+    [Header("Instruction Text")]
+    [SerializeField]
+    TextMeshProUGUI instructionText;
+
     private int currentIndex = 0;
+    private InstructionState currentState;
+    private bool forceMoveNext = false;
+
+    private void Start()
+    {
+        StartInstructions();
+    }
 
     public void StartInstructions()
     {
@@ -18,8 +30,10 @@ public class StateManager : MonoBehaviour
     {
         while (currentIndex < instructionStates.Count)
         {
-            InstructionState currentState = instructionStates[currentIndex];
+            currentState = instructionStates[currentIndex];
             currentState.InitiateState();
+            ChangeInstructionText(currentState);
+
             if (currentState.TriggerType == StateType.Timed)
             {
                 yield return new WaitForSeconds(currentState.GetTimetoWait());
@@ -27,9 +41,23 @@ public class StateManager : MonoBehaviour
             else if (currentState.TriggerType == StateType.Trigger)
             {
                 // Wait for trigger
+                yield return new WaitUntil(() => forceMoveNext);
+                forceMoveNext = false; // Reset the flag after moving to the next state
             }
             currentState.ExitState();
             currentIndex++;
+        }
+    }
+    public void ChangeInstructionText(InstructionState state)
+    {
+        //Debug.Log("Called change instructions");
+        instructionText.text = state.GetInstructionText();
+    }
+    public void MoveNextState(int index)
+    {
+        if(currentState && currentState.TriggerType == StateType.Trigger && index == currentIndex + 1)
+        {
+            forceMoveNext = true;
         }
     }
 }

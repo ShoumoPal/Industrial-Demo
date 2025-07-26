@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -24,12 +22,11 @@ public class InstructionState : MonoBehaviour
                 triggerType = value;
             }
         }
-    } 
+    }
     #endregion
 
-    [Header("Next State")]
     [SerializeField]
-    InstructionState nextState;
+    InstructionSO instructionSO;
 
     [Header("On State Enter")]
     [SerializeField]
@@ -48,10 +45,6 @@ public class InstructionState : MonoBehaviour
     }
 
     #region Getters
-    public InstructionState GetNextState()
-    {
-        return nextState;
-    }
     public float GetTimetoWait()
     {
         return timeToWait;
@@ -65,5 +58,10 @@ public class InstructionState : MonoBehaviour
     public void ExitState()
     {
         onStateExit?.Invoke();
+    }
+
+    public string GetInstructionText()
+    {
+        return instructionSO.instructionText;
     }
 }
