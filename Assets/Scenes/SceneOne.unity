@@ -965,6 +965,81 @@ Transform:
   - {fileID: 1213447539}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &907764589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 907764591}
+  - component: {fileID: 907764590}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &907764590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907764589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20aaec90493b1014bb5bca4923cbaf89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 118254013}
+  steeringTurnedLeft:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2056327448}
+        m_TargetAssemblyTypeName: StateManager, Assembly-CSharp
+        m_MethodName: MoveNextState
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  steeringTurnedRight:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2056327448}
+        m_TargetAssemblyTypeName: StateManager, Assembly-CSharp
+        m_MethodName: MoveNextState
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &907764591
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907764589}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &939429961
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,12 +1069,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8522a39f24f97cd49b5991052ab62727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerType: 0
+  triggerType: 1
   timeToWait: 3
   instructionSO: {fileID: 11400000, guid: f9707554c60abe34e907d42b85c47081, type: 2}
   onStateEnter:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 907764590}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: CheckSteering
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Right
+          m_BoolArgument: 0
+        m_CallState: 2
   onStateExit:
     m_PersistentCalls:
       m_Calls: []
@@ -1279,12 +1366,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8522a39f24f97cd49b5991052ab62727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerType: 0
+  triggerType: 1
   timeToWait: 5
   instructionSO: {fileID: 11400000, guid: 597e2aa5d9effbb4d82527875c943f75, type: 2}
   onStateEnter:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 907764590}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: CheckSteering
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Left
+          m_BoolArgument: 0
+        m_CallState: 2
   onStateExit:
     m_PersistentCalls:
       m_Calls: []
@@ -1524,6 +1623,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hightlightMaterial: {fileID: 2100000, guid: 5e5217690b8f7fe4d8d21bb69985f0fe, type: 2}
+--- !u!1 &1687790268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1687790269}
+  - component: {fileID: 1687790270}
+  m_Layer: 0
+  m_Name: 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1687790269
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687790268}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2056327447}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1687790270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687790268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8522a39f24f97cd49b5991052ab62727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerType: 0
+  timeToWait: 3
+  instructionSO: {fileID: 11400000, guid: e62f2c45fb9f4c647a214324c8c2c41d, type: 2}
+  onStateEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onStateExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1747651371 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8046974480709179521, guid: be3ab93fbb5141c4b8bc627e30a36f41,
@@ -1568,6 +1720,7 @@ Transform:
   m_Children:
   - {fileID: 1004437671}
   - {fileID: 939429963}
+  - {fileID: 1687790269}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2056327448
@@ -1585,6 +1738,7 @@ MonoBehaviour:
   instructionStates:
   - {fileID: 1004437672}
   - {fileID: 939429962}
+  - {fileID: 1687790270}
   instructionText: {fileID: 2092890697}
 --- !u!1 &2092890695
 GameObject:
@@ -1733,3 +1887,4 @@ SceneRoots:
   - {fileID: 1560412354}
   - {fileID: 2056327447}
   - {fileID: 448700606}
+  - {fileID: 907764591}

@@ -13,6 +13,8 @@ public class MiniForkLiftController : MonoBehaviour
     void Update()
     {
         SteerWheel();
+
+        //Debug.Log(GetYRotation());
     }
 
     private void SteerWheel()
@@ -21,5 +23,12 @@ public class MiniForkLiftController : MonoBehaviour
         float targetAngle = Mathf.Clamp(input * maxSteerAngle, -maxSteerAngle, maxSteerAngle);
         Quaternion targetRotation = Quaternion.Euler(0, targetAngle, 0); // Assuming Z-axis rotation
         steeringWheel.localRotation = Quaternion.RotateTowards(steeringWheel.localRotation, targetRotation, steerSpeed * Time.deltaTime);
+    }
+
+    public float GetYRotation()
+    {
+        return ((steeringWheel.localRotation.eulerAngles.y) < 180)?
+            steeringWheel.localRotation.eulerAngles.y :
+            steeringWheel.localRotation.eulerAngles.y - 360;
     }
 }
