@@ -7598,7 +7598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf179b9cd37b3c4f8eff912a587a4f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hightlightMaterial: {fileID: 2100000, guid: 5e5217690b8f7fe4d8d21bb69985f0fe, type: 2}
+  highlightMaterial: {fileID: 2100000, guid: 5e5217690b8f7fe4d8d21bb69985f0fe, type: 2}
 --- !u!1 &1574331305
 GameObject:
   m_ObjectHideFlags: 0
@@ -7894,7 +7894,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1560412357}
-        m_TargetAssemblyTypeName: Highlighter, Assembly-CSharp
+        m_TargetAssemblyTypeName: HighlightObject, Assembly-CSharp
         m_MethodName: HighlightBlink
         m_Mode: 4
         m_Arguments:
@@ -7909,7 +7909,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1560412357}
-        m_TargetAssemblyTypeName: Highlighter, Assembly-CSharp
+        m_TargetAssemblyTypeName: HighlightObject, Assembly-CSharp
         m_MethodName: StopHighlightBlink
         m_Mode: 1
         m_Arguments:

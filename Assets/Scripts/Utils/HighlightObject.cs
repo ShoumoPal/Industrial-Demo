@@ -2,10 +2,9 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Renderer))]
-public class Highlighter : MonoBehaviour
+public class HighlightObject : MonoBehaviour
 {
-    [SerializeField]
-    Material hightlightMaterial;
+    public Material highlightMaterial;
 
     private bool blink = false;
     private Renderer mesh;
@@ -26,7 +25,7 @@ public class Highlighter : MonoBehaviour
         blink = true;
         while (blink)
         {
-            mesh.material = hightlightMaterial;
+            mesh.material = highlightMaterial;
             yield return new WaitForSeconds(interval);
             mesh.material = originalMaterial;
             yield return new WaitForSeconds(interval);
