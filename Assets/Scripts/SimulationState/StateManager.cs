@@ -55,7 +55,8 @@ public class StateManager : MonoBehaviour
     }
     public void MoveNextState(int index)
     {
-        if(currentState && currentState.TriggerType == StateType.Trigger && index == currentIndex + 1)
+        Debug.Log("Called MoveNextState with index: " + index);
+        if (currentState && currentState.TriggerType == StateType.Trigger && index == currentIndex)
         {
             forceMoveNext = true;
         }

@@ -1,0 +1,13 @@
+{
+    "module": {
+        "moduleName": "ForkLift Module",
+        "moduleType": "Training",
+        "moduleVersion": "1.0",
+        "moduleDescription": "Training for forklift"
+    },
+    "gameData": {
+        "startTime": "2025-07-27T18:51:21.8890666",
+        "endTime": "2025-07-27T18:51:56.6297031",
+        "duration": 34.74063491821289
+    }
+}

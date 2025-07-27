@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MiniForkLiftController : MonoBehaviour
@@ -10,11 +8,57 @@ public class MiniForkLiftController : MonoBehaviour
     public float maxSteerAngle = 80f; // Maximum rotation angle
     public float steerSpeed = 200f;   // Speed of rotation
 
+    public float moveSpeed = 10f;
+    public float turnSpeed = 50f;
+
+    public bool engine = false;
+
+    Rigidbody rb;
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
     void Update()
     {
         SteerWheel();
 
+        #region Engine Input Code
+        if (!engine && Input.GetKeyDown(KeyCode.E))
+        {
+            engine = true;
+            Debug.Log("Engine started");
+        }
+        else if (engine && Input.GetKeyDown(KeyCode.E))
+        {
+            engine = false;
+            Debug.Log("Engine stopped");
+        } 
+        #endregion
+
         //Debug.Log(GetYRotation());
+    }
+
+    private void FixedUpdate()
+    {
+        if (engine)
+        {
+            MoveForkLift(); 
+        }
+    }
+
+    private void MoveForkLift()
+    {
+        float move = Input.GetAxis("Vertical");   // W/S or Up/Down Arrow
+        float turn = Input.GetAxis("Horizontal"); // A/D or Left/Right Arrow
+
+        // Move forward/backward
+        Vector3 movement = transform.forward * move * moveSpeed * Time.fixedDeltaTime;
+        rb.MovePosition(rb.position + movement);
+
+        // Rotate left/right
+        Quaternion rotation = Quaternion.Euler(0f, turn * turnSpeed * Time.fixedDeltaTime, 0f);
+        rb.MoveRotation(rb.rotation * rotation);
     }
 
     private void SteerWheel()
