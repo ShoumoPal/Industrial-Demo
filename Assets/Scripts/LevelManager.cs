@@ -1,6 +1,5 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,12 +8,23 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     MiniForkLiftController controller;
 
-    [Header("Events")]
+    [Header("Steering Events")]
     [SerializeField]
     UnityEvent steeringTurnedLeft;
     [SerializeField]
     UnityEvent steeringTurnedRight;
 
+    [Header("Engine Events")]
+    [SerializeField]
+    UnityEvent engineStarted;
+
+    [Header("Level Events")]
+    [SerializeField]
+    UnityEvent levelStarted;
+    [SerializeField]
+    UnityEvent onReachedTrigger;
+
+    #region Steering Related Events
     public void CheckSteering(string direction)
     {
         StartCoroutine(CheckSteeringCR(direction));
@@ -34,6 +44,41 @@ public class LevelManager : MonoBehaviour
             yield return new WaitUntil(() => controller.GetYRotation() > 75f);
             steeringTurnedRight.Invoke();
         }
+    }
+    #endregion
+
+    #region Engine Related
+    public void CheckEngine()
+    {
+        StartCoroutine(CheckEngineCR());
+    }
+
+    private IEnumerator CheckEngineCR()
+    {
+        yield return new WaitUntil(() => controller.engine == true);
+        engineStarted.Invoke();
+    }
+    #endregion
+
+    #region Level Related Events
+    public void LevelStart()
+    {
+        levelStarted?.Invoke();
+    }
+    public void OnReachedTrigger()
+    {
+        onReachedTrigger?.Invoke();
+    }
+    #endregion
+
+    // Just to end the level
+    public void EndLevel()
+    {
+        #if UNITY_EDITOR_64 || UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+        #endif
+
+        Application.Quit();
     }
 }
 public enum Direction
