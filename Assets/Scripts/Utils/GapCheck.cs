@@ -25,4 +25,14 @@ public class GapCheck : MonoBehaviour
             triggerd = true; // Prevent multiple invocations
         }
     }
+
+    public void SetTarget(Transform target)
+    {
+        this.target = target;
+    }
+
+    public void SetThreshold(float threshold)
+    {
+        this.threshold = threshold;
+    }
 }
