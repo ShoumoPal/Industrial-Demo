@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
+// Level manager for handling various game events in a forklift simulation.
 public class LevelManager : MonoBehaviour
 {
     [SerializeField]

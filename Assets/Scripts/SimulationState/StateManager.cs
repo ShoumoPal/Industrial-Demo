@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+// State manager for instruction states in a simulation.
 public class StateManager : MonoBehaviour
 {
     [Header("Instruction States")]  

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+// Instruction state for a forklift simulation, handling different types of triggers and events.
 public class InstructionState : MonoBehaviour
 {
     [Header("Trigger Type")]

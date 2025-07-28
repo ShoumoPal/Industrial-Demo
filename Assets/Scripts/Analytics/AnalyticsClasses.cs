@@ -1,5 +1,7 @@
 using System;
 
+// All analytics classes for the forklift simulation are defined here.
+
 namespace Analytics
 {
     [System.Serializable]

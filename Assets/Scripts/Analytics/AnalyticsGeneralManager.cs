@@ -3,6 +3,7 @@ using Analytics;
 using System;
 using System.IO;
 
+// Analytics manager for the forklift simulation.
 public class AnalyticsGeneralManager : MonoBehaviour
 {
     [Header("Module details")]

@@ -3,6 +3,8 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
+// GapCheckTest for testing the GapCheck component functionality in Unity
+
 public class GapCheckTest : MonoBehaviour
 {
     private GameObject testTriggerObj;

@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
+// Component to highlight an object by changing its material periodically
+
 [RequireComponent(typeof(Renderer))]
 public class HighlightObject : MonoBehaviour
 {
