@@ -33,4 +33,11 @@ Working on this project has been a really fun experience! I have tried my best t
 
 ## 🎮 Demo:
 
+[Forklift-Demo](https://drive.google.com/file/d/1e6JRELLTXPXzsQbHAkASlGCcqAr-64_B/view?usp=sharing)
+
+## ⚡Bonus:
+
+* Sample response at endpoint:
+  
+<img width="1757" height="524" alt="image" src="https://github.com/user-attachments/assets/a39838f3-e926-4c98-85bc-f5121495858d" />
 
